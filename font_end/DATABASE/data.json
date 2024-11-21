@@ -1,5 +1,144 @@
 {
     "notification": "Ưu đãi ngày nhà giáo Việt Nam 20-11",
-    "src": "../IMG/poster.jpg"
+    "src": "../IMG/poster.jpg",
+    "poster_skill":"../IMG/kinang.jpg",
+    "poster_science":"../IMG/khoahoc.jpg",
+    "poster_family":"../IMG/giadinh.jpg",
+    "product":[
+      {
+        "id":"1",
+        "img":"../IMG/typhubangiay.jpg",
+        "name":"Tỷ Phú Bán Giày",
+        "old_price":"159000",
+        "new_price":"127000",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"2",
+        "img":"../IMG/tamly.jpg",
+        "name":"Những đòn tâm lý trong thuyết phục",
+        "old_price":"238000",
+        "new_price":"180000",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"3",
+        "img":"../IMG/tyduynhanhcham.jpg",
+        "name":"Tư duy nhanh chậm",
+        "old_price":"249000",
+        "new_price":"215000",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"4",
+        "img":"../IMG/philytri.jpg",
+        "name":"Phi lý trí",
+        "old_price":"169000",
+        "new_price":"100000",
+        "type_money":"vnđ"
+      }
+    ],
+    "product_skill":[
+      {
+        "id":"1",
+        "img":"../IMG/xanh.jpg",
+        "name":"Nâng tầm ảnh hưởng",
+        "old_price":"99000",
+        "new_price":"79200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"2",
+        "img":"../IMG/xanhbien.jpg",
+        "name":"Lựa chọn sáng suốt",
+        "old_price":"99000",
+        "new_price":"79200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"3",
+        "img":"../IMG/cam.jpg",
+        "name":"Phá vỡ giới hạn",
+        "old_price":"99000",
+        "new_price":"79200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"4",
+        "img":"../IMG/do.jpg",
+        "name":"Thay đổi tư duy",
+        "old_price":"99000",
+        "new_price":"79200",
+        "type_money":"vnđ"
+      }
+    ],
+    "product_science":[
+      {
+        "id":"1",
+        "img":"../IMG/masusong.jpg",
+        "name":"Mật mã sự sống",
+        "old_price":"193000",
+        "new_price":"45200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"2",
+        "img":"../IMG/pt.jpg",
+        "name":"Phương trình của chúa",
+        "old_price":"89000",
+        "new_price":"12200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"3",
+        "img":"../IMG/dulieu.jpg",
+        "name":"Dữ liệu lớn",
+        "old_price":"90000",
+        "new_price":"23200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"4",
+        "img":"../IMG/vutru.jpg",
+        "name":"Khởi nguyên của vũ trụ ",
+        "old_price":"67000",
+        "new_price":"10200",
+        "type_money":"vnđ"
+      }
+    ],
+    "products_family":[
+      {
+        "id":"1",
+        "img":"../IMG/caigia.jpg",
+        "name":"Cái giá của yêu thương",
+        "old_price":"195000",
+        "new_price":"156200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"2",
+        "img":"../IMG/gioi.jpg",
+        "name":"Cha mẹ giỏi con yêu thương",
+        "old_price":"149000",
+        "new_price":"100200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"3",
+        "img":"../IMG/tannhan.jpg",
+        "name":"Vô cùng tàn nhẫn Vô cùng yêu thương",
+        "old_price":"291000",
+        "new_price":"79200",
+        "type_money":"vnđ"
+      },
+      {
+        "id":"4",
+        "img":"../IMG/thanhcong.jpg",
+        "name":"Để trẻ thành công",
+        "old_price":"123000",
+        "new_price":"53200",
+        "type_money":"vnđ"
+      }
+    ]
   }
   

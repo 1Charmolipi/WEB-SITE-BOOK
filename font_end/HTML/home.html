@@ -82,16 +82,87 @@
           <div class="row-container-top">
             <product-card
               v-for="(product, index) in products"
-              :key="index"
-              :image="product.image"
-              :title="product.title"
-              :price="product.price"
-              :description="product.description"
+              :img="product.img"
+              :name="product.name"
+              :old_price="product.old_price"
+              :new_price="product.new_price"
+              :type_money="product.type_money"
               class="col-md-2"
             >
             </product-card>
+          </div>
 
-        </div>
+          <div class="container-skill">
+            <div class="header-skill">
+              <div class="skill-book">SÁCH TƯ DUY - KỸ NĂNG</div>
+              <div class="header-option">
+                <div class="market-book">Marketing</div>
+                <div class="book-cash">Tài chính - Đầu tư</div>
+                <div class="book-starup">Khởi nghiệp</div>
+              </div>
+            </div>
+            <img :src="poster_skill" width="100%" alt="img" />
+            <div class="row-container-top">
+              <product-card
+                v-for="(product, index) in products"
+                :img="product.img"
+                :name="product.name"
+                :old_price="product.old_price"
+                :new_price="product.new_price"
+                :type_money="product.type_money"
+                class="col-md-2"
+              >
+              </product-card>
+            </div>
+          </div>
+
+          <div class="container-family">
+            <div class="header-family">
+              <div class="family-book">TỦ SÁCH - GIA ĐÌNH</div>
+              <div class="header-option">
+                <div class="market-book">Dạy trẻ</div>
+                <div class="book-cash">Truyện tranh</div>
+                <div class="book-starup">Sáng tạo</div>
+              </div>
+            </div>
+            <img :src="poster_family" width="100%" alt="img" />
+            <div class="row-container-top">
+              <product-card
+                v-for="(product, index) in products_family"
+                :img="product.img"
+                :name="product.name"
+                :old_price="product.old_price"
+                :new_price="product.new_price"
+                :type_money="product.type_money"
+                class="col-md-2"
+              >
+              </product-card>
+            </div>
+          </div>
+
+          <div class="container-science">
+            <div class="header-science">
+              <div class="science-book">KHOA HỌC - GIÁO DỤC</div>
+              <div class="header-option">
+                <div class="market-book">Khoa học</div>
+                <div class="book-cash">Giáo dục</div>
+                <div class="book-starup">Nghiên cứu</div>
+              </div>
+            </div>
+            <img :src="poster_science" width="100%" alt="img" />
+            <div class="row-container-top">
+              <product-card
+                v-for="(product, index) in products_science"
+                :img="product.img"
+                :name="product.name"
+                :old_price="product.old_price"
+                :new_price="product.new_price"
+                :type_money="product.type_money"
+                class="col-md-2"
+              >
+              </product-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>

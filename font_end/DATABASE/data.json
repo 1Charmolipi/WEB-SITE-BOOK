@@ -139,6 +139,94 @@
         "new_price":"53200",
         "type_money":"vnđ"
       }
+    ],
+    "categories":[
+      {
+        "id":"ct1",
+        "name":"Sách tư duy kỹ năng"
+      },
+      {
+        "id":"ct2",
+        "name":"Sách kinh tế tài chính"
+      },
+      {
+        "id":"ct3",
+        "name":"Tủ sách gia đình"
+      },
+      {
+        "id":"ct4",
+        "name":"Sách lịch sử chính trị"
+      },
+      {
+        "id":"ct5",
+        "name":"Sách văn hóa nghệ thuật"
+      },
+      {
+        "id":"ct6",
+        "name":"Sách ngoại ngữ"
+      },
+      {
+        "id":"ct7",
+        "name":"Sách tiểu sử hồi ký"
+      },
+      {
+        "id":"ct8",
+        "name":"Sách văn học"
+      },
+      {
+        "id":"ct9",
+        "name":"Sách ý học sức khỏe"
+      }
+    ],
+    "subcategories":[
+      {
+        "idcate":"ct1",
+        "namecate":"Sách tư duy kỹ năng",
+        "items":[
+          {
+            "id":"sct1",
+            "name":"Marketing - Bán hàng"
+          },
+          {
+            "id":"sct2",
+            "name":"Tài chính đầu tư"
+          },
+          {
+            "id":"sct3",
+            "name":"Lãnh đạo khởi nghiệp"
+          },
+          {
+            "id":"sct4",
+            "name":"Marketing - Bán hàng"
+          }
+        ]
+      },
+      {
+        "idcate":"ct2",
+        "namecate":"Sách kinh tế tài chính"
+      },
+      {
+        "idcate":"ct3",
+        "namecate":"Tủ sách gia đình"
+      },
+      {
+        "idcate":"ct4",
+        "namecate":"Sách lịch sử chính trị"
+      }
+    ],
+    "posters":[
+      {
+        "src":"../IMG/poster.jpg"
+      },
+      {
+        "src":"../IMG/kinang.jpg"
+      },
+      {
+        "src":"../IMG/khoahoc.jpg"
+      },
+      {
+        "src":"../IMG/giadinh.jpg"
+      }
     ]
-  }
+}
   

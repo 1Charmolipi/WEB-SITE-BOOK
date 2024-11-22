@@ -3,11 +3,13 @@ body {
   justify-content: center;
   margin: 0px;
 }
+
 .Container {
   width: 1500px;
   height: 2000px;
   background-color: #ddd;
 }
+
 .notification {
   font-weight: bold;
   font-size: 30px;
@@ -16,9 +18,10 @@ body {
   background-color: rgb(80, 165, 239);
   color: rgb(255, 255, 255);
 }
+
 .header {
   height: 80px;
-  background-color: rgb(186, 186, 186);
+  background-color: #f4f4f4;;
 }
 
 .fa-book {
@@ -56,13 +59,15 @@ body {
 .fa-search {
   font-size: 20px;
 }
-.noti {
-  width: 40px;
+.iconNoti {
+  width: 50px;
   color: rgb(10, 57, 98);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  position: relative;
 }
 .fa-bell {
   font-size: 25px;
@@ -70,8 +75,9 @@ body {
 .textBell {
   font-size: 10px;
 }
-.cart {
-  width: 40px;
+.iconCart {
+  width: 50px;
+  height: 100%;
   color: rgb(10, 57, 98);
   display: flex;
   flex-direction: column;
@@ -84,13 +90,16 @@ body {
 .fa-shopping-cart {
   font-size: 25px;
 }
-.user {
+.iconUser {
   width: 30px;
+  height: 100%;
   color: rgb(10, 57, 98);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  position: relative;
 }
 .textUser {
   font-size: 10px;
@@ -102,6 +111,8 @@ body {
 .grid-container {
   width: 100%;
   height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
   display: grid;
   grid-template-columns: 30% 60% 10%;
 }
@@ -109,20 +120,17 @@ body {
 .grid-item-logo {
   display: flex;
   align-items: center;
-  background-color: #f4f4f4;
   text-align: center;
 }
 .grid-item-search {
   justify-content: center;
   display: flex;
   align-items: center;
-  background-color: #f4f4f4;
   text-align: center;
 }
 .grid-item-icon {
   display: flex;
   justify-content: space-between;
-  background-color: #f4f4f4;
   text-align: center;
 }
 .option {
@@ -131,6 +139,7 @@ body {
   width: 100%;
   height: 50px;
   background-color: #5f7485;
+  position: relative;
 }
 .grid-option {
   height: 100%;
@@ -142,6 +151,7 @@ body {
 .item-product {
   color: white;
   display: flex;
+  height: 100%;
   justify-content: center;
   align-items: center;
   font-weight: bold;
@@ -173,7 +183,7 @@ body {
   margin-top: 10px;
   width: 100%;
   height: 570px;
-  background-color: #021a2d;
+  background-color: #ffffff;
 }
 
 .product-image {
@@ -472,4 +482,230 @@ body {
 }
 .ship{
   margin-top: 20px;
+}
+
+/*Noti dropdown*/
+.notiBox{
+  max-height: 350px;
+  position: absolute;
+  top: 64px;
+  right: 0px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  z-index: 1001;
+  overflow: auto;
+  color: rgb(75, 75, 75);
+}
+
+.notiBoxHeader{
+  width: 100%;
+  height: 50px;
+  padding: 0px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+.notiBoxTxtAllNoti{
+  font-size: small;
+  color:#2e85ff;
+}
+
+.notiItem{
+  width: 100%;
+  height: 100px;
+  padding: 15px 20px;
+  overflow: hidden;
+
+  text-align: left;
+}
+
+.notiItemTitle{
+  color:#404040;
+  font-weight: bold;
+}
+
+/*User dropdown*/
+.userBox{
+  position: absolute;
+  top: 64px;
+  right: 0px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 1001;
+  color: rgb(145, 145, 145);
+}
+
+.userBoxHeader{
+  width: 100%;
+  height: 60px;
+  padding: 0px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+.userInfor{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userAvatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background: red;
+
+  margin-right: 20px;
+}
+
+.userName{
+  color: rgb(75, 75, 75);
+}
+
+.userItem{
+  width: 100%;
+  height: 40px;
+  padding: 0px 20px;
+
+  display: flex;
+  align-items: center;
+
+  text-align: left;
+}
+
+.userItem i{
+  margin-right: 20px;
+}
+
+/*Menu dropdown*/
+.menuBox{
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 1000;
+
+  font-weight: normal;
+}
+
+.menuItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  /* border-bottom: 1px solid rgb(174, 174, 174); */
+  color: black;
+}
+
+.menuItem:hover {
+  background: rgb(255, 89, 0);
+}
+
+/*SubMenu*/
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Hiện bên phải của li */
+  background: rgb(240, 239, 239);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 300px;
+  z-index: 1000;
+}
+
+.submenu p {
+  margin: 0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.submenu p:hover {
+  color: rgb(255, 89, 0);
+}
+
+.submenuCaption{
+  padding: 0px 10px;
+
+  color: rgb(255, 89, 0);
+  font-size: large;
+  
+  cursor: default;
+}
+
+/*ChatBox*/
+.btnChat{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 38px;
+  z-index: 1000;
+  border: none;
+  border-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to bottom, rgb(13, 215, 255), rgb(47, 16, 247));
+  
+  color: white;
+  font-size: 25px;
+}
+
+.chatBox{
+  position: fixed;
+  bottom: 10px;
+  right: 60px;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 1000;
+
+  flex-direction: column;
+}
+
+.chatBoxHeader {
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: rgb(13, 141, 247);
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nội dung chat */
+.chatContent {
+  padding: 10px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Input chat */
+.chatInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  resize: none;
 }

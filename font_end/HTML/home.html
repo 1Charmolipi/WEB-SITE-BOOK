@@ -1,274 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
 
-    <link rel="stylesheet" href="../CSS/Style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
 
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="../CSS/Style.css" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <!-- jQuery -->
-  </head>
-  <body>
-    <div class="Container">
-      <div id="app">
-        <div v-if="notification" class="notification">{{notification}}</div>
-        <div class="header">
-          <div class="grid-container">
-            <div class="grid-item-logo">
-              <i class="fas fa-book"></i>
-              <div class="logo">BÁCH KHOA SÁCH</div>
-            </div>
-            <div class="grid-item-search">
-              <input
-                class="input"
-                type="text"
-                id="myInput"
-                name="myInput"
-                value="Bạn muốn đọc sách gì..."
-              />
-              <div class="glass"><i class="fas fa-search"></i></div>
-            </div>
-            <div class="grid-item-icon">
-              <div class="noti">
-                <i class="fas fa-bell"></i>
-                <div class="textBell">Thông báo</div>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <!-- jQuery -->
+</head>
+
+<body>
+  <div class="Container">
+    <div id="app">
+
+      <!-- Thông báo ngang đầu trang -->
+      <div v-if="notification" class="notification">{{notification}}</div>
+
+      <!-- Header -->
+      <div class="header">
+        <div class="grid-container">
+          <div class="grid-item-logo">
+            <i class="fas fa-book"></i>
+            <div class="logo">BÁCH KHOA SÁCH</div>
+          </div>
+          <div class="grid-item-search">
+            <input class="input" type="text" id="myInput" name="myInput" value="Bạn muốn đọc sách gì..." />
+            <div class="glass"><i class="fas fa-search"></i></div>
+          </div>
+          <div class="grid-item-icon">
+            <div class="iconNoti">
+              <i class="fas fa-bell" @click="notiClick"></i>
+              <div class="textBell"></div>
+              <div v-if="notiVisible" class="notiBox">
+                <div class="notiBoxHeader">
+                  <div>Thông báo</div>
+                  <div class="notiBoxTxtAllNoti">Xem tất cả</div>
+                </div>
+                <div class="notiItem">
+                  <div class="notiItemTitle">Thông báo số 1</div>
+                  <div class="notiItemContent">hello Thong báo đây lo</div>
+                </div>
+                <div class="notiItem">
+                  <div class="notiItemTitle">Thông báo số 2</div>
+                  <div class="notiItemContent">
+                    hello Thong báo số 2 đây ai không muốn học thì đi về, không làm thì ngủ
+                    aaaaaaaaaaaa về nhà... mà cãi nhaoaaaaaaaaa
+                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    aaa
+                  </div>
+                </div>
+                <div class="notiItem">
+                  <div class="notiItemTitle">Thông báo nghỉ học</div>
+                  <div class="notiItemContent">hello cả nhà yêu của kem</div>
+                </div>
+                <div class="notiItem">
+                  <div class="notiItemTitle">Bạn có một tin nhắn chưa đọc</div>
+                  <div class="notiItemContent">hello Thong báo đây lo</div>
+                </div>
               </div>
-              <div class="cart">
-                <i class="fas fa-shopping-cart"></i>
-                <div class="textCart">Giỏ hàng</div>
-              </div>
-              <div class="user">
-                <i class="fas fa-user"></i>
-                <div class="textUser">User</div>
+            </div>
+            <div class="iconCart">
+              <i class="fas fa-shopping-cart"></i>
+              <div class="textCart"></div>
+            </div>
+            <div class="iconUser">
+              <i class="fas fa-user" @click="userClick"></i>
+              <div class="textUser"></div>
+              <div v-if="userVisible" class="userBox">
+                <div class="userBoxHeader">
+                  <div class="userInfor">
+                    <div class="userAvatar"></div>
+                    <div class="userName">User Nêm</div>
+                  </div>
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="userItem" id="myOrder"><i class="fa-solid fa-file-invoice-dollar"></i>Đơn hàng của tôi</div>
+                <div class="userItem" id="favoriteProduct"><i class="fa-regular fa-heart"></i>Sản phẩm yêu thích</div>
+                <div class="userItem" id="logOut"><i class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="option">
-          <div class="grid-option">
-            <div class="item-product">
-              <i class="fas fa-bars"></i>
-              <div>TẤT CẢ SẢN PHẨM</div>
-            </div>
-            <div class="item-intro">Giới thiệu</div>
-            <div class="item-news">Tin tức</div>
-            <div class="item-review">Review</div>
-            <div class="item-colab">Hợp tác</div>
-            <div class="item-lookUp">Tra cứu đơn</div>
-          </div>
-        </div>
-        <div class="poster">
-          <img :src="src" width="100%" alt="Poster" />
-        </div>
-        <div class="top-saler">
-          <div class="label-top-saler">
-            <i class="fas fa-trophy"></i>
-            <div>TOP SÁCH BÁN CHẠY</div>
-          </div>
+      </div>
 
+      <!-- Thanh điều hướng chọn danh mục các thứ -->
+      <div class="option">
+        <div class="grid-option">
+          <div class="item-product" @click="menuClick" @mouseleave="hideMenu">
+            <i class="fas fa-bars"></i>
+            <div>TẤT CẢ SẢN PHẨM</div>
+            <div class="menuBox" v-if="menuVisible">
+              <div class="menuItem" v-for="(item, index) in categories" :key="index" @mouseover="showSubmenu(index)"
+                @mouseleave="hideSubmenu">
+                {{ item.name }}
+                <div v-if="activeCategory === index" class="submenu">
+                  <div class="submenuCaption">{{ item.name }}</div>
+                  <p v-for="(subItem, subIndex) in subcategories[index].items" :key="subIndex">
+                    {{ subItem.name }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-intro">Giới thiệu</div>
+          <div class="item-news">Tin tức</div>
+          <div class="item-review">Review</div>
+          <div class="item-colab">Hợp tác</div>
+          <div class="item-lookUp">Tra cứu đơn</div>
+        </div>
+      </div>
+
+      <!-- Slide poster -->
+      <div class="poster">
+        <div id="posterSlide" class="carousel slide h-100" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#posterSlide" :data-bs-slide-to="index"
+              :aria-label="'Slide' + (index+1)" v-for="(poster, index) in posters" :class="{'active': index === 0}"
+              :aria-current="index === 0 ? 'true' : 'false'"></button>
+          </div>
+          <div class="carousel-inner h-100">
+            <div class="carousel-item h-100" v-for="(poster, index) in posters" :key="index"
+              :class="{'active': index === 0}">
+              <img :src="poster.src" class="d-block w-100 h-100" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="top-saler">
+        <div class="label-top-saler">
+          <i class="fas fa-trophy"></i>
+          <div>TOP SÁCH BÁN CHẠY</div>
+        </div>
+
+        <div class="row-container-top">
+          <product-card v-for="(product, index) in products" :img="product.img" :name="product.name"
+            :old_price="product.old_price" :new_price="product.new_price" :type_money="product.type_money"
+            class="col-md-2">
+          </product-card>
+        </div>
+
+        <div class="container-skill">
+          <div class="header-skill">
+            <div class="skill-book">SÁCH TƯ DUY - KỸ NĂNG</div>
+            <div class="header-option">
+              <div class="market-book">Marketing</div>
+              <div class="book-cash">Tài chính - Đầu tư</div>
+              <div class="book-starup">Khởi nghiệp</div>
+            </div>
+          </div>
+          <img :src="poster_skill" width="100%" alt="img" />
           <div class="row-container-top">
-            <product-card
-              v-for="(product, index) in products"
-              :img="product.img"
-              :name="product.name"
-              :old_price="product.old_price"
-              :new_price="product.new_price"
-              :type_money="product.type_money"
-              class="col-md-2"
-            >
+            <product-card v-for="(product, index) in products" :img="product.img" :name="product.name"
+              :old_price="product.old_price" :new_price="product.new_price" :type_money="product.type_money"
+              class="col-md-2">
             </product-card>
           </div>
+        </div>
 
-          <div class="container-skill">
-            <div class="header-skill">
-              <div class="skill-book">SÁCH TƯ DUY - KỸ NĂNG</div>
-              <div class="header-option">
-                <div class="market-book">Marketing</div>
-                <div class="book-cash">Tài chính - Đầu tư</div>
-                <div class="book-starup">Khởi nghiệp</div>
-              </div>
-            </div>
-            <img :src="poster_skill" width="100%" alt="img" />
-            <div class="row-container-top">
-              <product-card
-                v-for="(product, index) in products"
-                :img="product.img"
-                :name="product.name"
-                :old_price="product.old_price"
-                :new_price="product.new_price"
-                :type_money="product.type_money"
-                class="col-md-2"
-              >
-              </product-card>
+        <div class="container-family">
+          <div class="header-family">
+            <div class="family-book">TỦ SÁCH - GIA ĐÌNH</div>
+            <div class="header-option">
+              <div class="market-book">Dạy trẻ</div>
+              <div class="book-cash">Truyện tranh</div>
+              <div class="book-starup">Sáng tạo</div>
             </div>
           </div>
+          <img :src="poster_family" width="100%" alt="img" />
+          <div class="row-container-top">
+            <product-card v-for="(product, index) in products_family" :img="product.img" :name="product.name"
+              :old_price="product.old_price" :new_price="product.new_price" :type_money="product.type_money"
+              class="col-md-2">
+            </product-card>
+          </div>
+        </div>
 
-          <div class="container-family">
-            <div class="header-family">
-              <div class="family-book">TỦ SÁCH - GIA ĐÌNH</div>
-              <div class="header-option">
-                <div class="market-book">Dạy trẻ</div>
-                <div class="book-cash">Truyện tranh</div>
-                <div class="book-starup">Sáng tạo</div>
-              </div>
-            </div>
-            <img :src="poster_family" width="100%" alt="img" />
-            <div class="row-container-top">
-              <product-card
-                v-for="(product, index) in products_family"
-                :img="product.img"
-                :name="product.name"
-                :old_price="product.old_price"
-                :new_price="product.new_price"
-                :type_money="product.type_money"
-                class="col-md-2"
-              >
-              </product-card>
+        <div class="container-science">
+          <div class="header-science">
+            <div class="science-book">KHOA HỌC - GIÁO DỤC</div>
+            <div class="header-option">
+              <div class="market-book">Khoa học</div>
+              <div class="book-cash">Giáo dục</div>
+              <div class="book-starup">Nghiên cứu</div>
             </div>
           </div>
-
-          <div class="container-science">
-            <div class="header-science">
-              <div class="science-book">KHOA HỌC - GIÁO DỤC</div>
-              <div class="header-option">
-                <div class="market-book">Khoa học</div>
-                <div class="book-cash">Giáo dục</div>
-                <div class="book-starup">Nghiên cứu</div>
-              </div>
-            </div>
-            <img :src="poster_science" width="100%" alt="img" />
-            <div class="row-container-top">
-              <product-card
-                v-for="(product, index) in products_science"
-                :img="product.img"
-                :name="product.name"
-                :old_price="product.old_price"
-                :new_price="product.new_price"
-                :type_money="product.type_money"
-                class="col-md-2"
-              >
-              </product-card>
-            </div>
+          <img :src="poster_science" width="100%" alt="img" />
+          <div class="row-container-top">
+            <product-card v-for="(product, index) in products_science" :img="product.img" :name="product.name"
+              :old_price="product.old_price" :new_price="product.new_price" :type_money="product.type_money"
+              class="col-md-2">
+            </product-card>
           </div>
-          <div class="bottom">
-            <div class="header-bottom">
-              <div class="new-register">
-                <i class="fas fa-envelope"></i>
-                <div class="news">ĐĂNG KÍ NHẬN TIN</div>
-              </div>
-              <div class="input-header-bottom">
-                <input
-                  type="text"
-                  style="
+        </div>
+
+        <div class="bottom">
+          <div class="header-bottom">
+            <div class="new-register">
+              <i class="fas fa-envelope"></i>
+              <div class="news">ĐĂNG KÍ NHẬN TIN</div>
+            </div>
+            <div class="input-header-bottom">
+              <input type="text" style="
                     border-radius: 5px;
                     border: none;
                     height: 50%;
                     width: 80%;
-                  "
-                  placeholder="Nhập địa chỉ của bạn"
-                />
-                <button class="btn-bottom">Đăng ký</button>
-              </div>
-            </div>
-            <div class="body-bottom">
-              <div class="address">
-                <div class="grid-item-logo">
-                  <i class="fas fa-book"></i>
-                  <div class="logo">BÁCH KHOA SÁCH</div>
-                </div>
-                <div class="content-address">
-                  <div class="infor">
-                    Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM Công Ty Cổ Phần
-                    Phát Hành Sách TP HCM - BKS
-                  </div>
-                  <div class="infor">
-                    BKS.com nhận đặt hàng trực tuyến và giao hàng tận nơi.
-                  </div>
-                  <div class="infor">
-                    KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng
-                    cũng như tất cả Hệ Thống Fahasa trên toàn quốc.
-                  </div>
-                  <div class="icon-contact">
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                    <i class="fab fa-tiktok"></i>
-                    <i class="fab fa-pinterest"></i>
-                  </div>
-                  <div class="certificate">
-                    <i class="fas fa-certificate">CHỨNG NHẬN</i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="vertical-line"></div>
-              <div class="bottom-option">
-                <div class="container-bottom-option">
-                  <div class="service">
-                    <div class="title">DỊCH VỤ</div>
-                    <li>Điều khoản và sử dụng</li>
-                    <li>Chính sách bảo mật</li>
-                    <li>Chính sách bảo mật thanh toán</li>
-                    <li>Giới thiệu Bách Khoa Sách</li>
-                    <li>Liên hệ:</li>
-                    <div class="contact">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <span>60-62 Lê Lợi, Q.1, TP. HCM</span>
-                    </div>
-                  </div>
-                  <div class="suport">
-                    <div class="title">HỖ TRỢ</div>
-                    <li>Chính sách đổi trả hoàn tiền</li>
-                    <li>Chính sách bảo mật</li>
-                    <li>Chính sách vận chuyển</li>
-
-                    <li>CSKH:</li>
-                    <div class="care">
-                      <i class="fas fa-phone"></i>
-                      <span>cskh@fahasa.com.vn</span>
-                    </div>
-                  </div>
-                  <div class="account">
-                    <div class="title">TÀI KHOẢN CỦA TÔI</div>
-                    <li>Đăng nhập/ Tạo mới tài khoản</li>
-                    <li>Thay đổi địa chỉ khách hàng</li>
-                    <li>Chi tiết tài khoản</li>
-                    <li>Lịch sử mua hàng</li>
-                    <li>SĐT:</li>
-                    <div class="phone-number">
-                      <i class="fas fa-mobile-alt"></i>
-                      <span>1900636467</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="ship">
-                  <img src="../IMG/ship.jpg" width="100%" alt="ship" />
-                </div>
-              </div>
+                  " placeholder="Nhập địa chỉ của bạn" />
+              <button class="btn-bottom">Đăng ký</button>
             </div>
           </div>
-          <div class="bottom-text">
-            Giấy chứng nhận Đăng ký Kinh doanh số 0304132047 do Sở Kế hoạch và
-            Đầu tư Thành phố Hồ Chí Minh cấp ngày 20/12/2005, đăng ký thay đổi
-            lần thứ 10, ngày 20/05/2022.
+          <div class="body-bottom">
+            <div class="address">
+              <div class="grid-item-logo">
+                <i class="fas fa-book"></i>
+                <div class="logo">BÁCH KHOA SÁCH</div>
+              </div>
+              <div class="content-address">
+                <div class="infor">
+                  Lầu 5, 387-389 Hai Bà Trưng Quận 3 TP HCM Công Ty Cổ Phần
+                  Phát Hành Sách TP HCM - BKS
+                </div>
+                <div class="infor">
+                  BKS.com nhận đặt hàng trực tuyến và giao hàng tận nơi.
+                </div>
+                <div class="infor">
+                  KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng
+                  cũng như tất cả Hệ Thống Fahasa trên toàn quốc.
+                </div>
+                <div class="icon-contact">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-instagram"></i>
+                  <i class="fab fa-youtube"></i>
+                  <i class="fab fa-tiktok"></i>
+                  <i class="fab fa-pinterest"></i>
+                </div>
+                <div class="certificate">
+                  <i class="fas fa-certificate">CHỨNG NHẬN</i>
+                </div>
+              </div>
+            </div>
+
+            <div class="vertical-line"></div>
+            <div class="bottom-option">
+              <div class="container-bottom-option">
+                <div class="service">
+                  <div class="title">DỊCH VỤ</div>
+                  <li>Điều khoản và sử dụng</li>
+                  <li>Chính sách bảo mật</li>
+                  <li>Chính sách bảo mật thanh toán</li>
+                  <li>Giới thiệu Bách Khoa Sách</li>
+                  <li>Liên hệ:</li>
+                  <div class="contact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>60-62 Lê Lợi, Q.1, TP. HCM</span>
+                  </div>
+                </div>
+                <div class="suport">
+                  <div class="title">HỖ TRỢ</div>
+                  <li>Chính sách đổi trả hoàn tiền</li>
+                  <li>Chính sách bảo mật</li>
+                  <li>Chính sách vận chuyển</li>
+
+                  <li>CSKH:</li>
+                  <div class="care">
+                    <i class="fas fa-phone"></i>
+                    <span>cskh@fahasa.com.vn</span>
+                  </div>
+                </div>
+                <div class="account">
+                  <div class="title">TÀI KHOẢN CỦA TÔI</div>
+                  <li>Đăng nhập/ Tạo mới tài khoản</li>
+                  <li>Thay đổi địa chỉ khách hàng</li>
+                  <li>Chi tiết tài khoản</li>
+                  <li>Lịch sử mua hàng</li>
+                  <li>SĐT:</li>
+                  <div class="phone-number">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>1900636467</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ship">
+                <img src="../IMG/ship.jpg" width="100%" alt="ship" />
+              </div>
+            </div>
           </div>
         </div>
+        <div class="bottom-text">
+          Giấy chứng nhận Đăng ký Kinh doanh số 0304132047 do Sở Kế hoạch và
+          Đầu tư Thành phố Hồ Chí Minh cấp ngày 20/12/2005, đăng ký thay đổi
+          lần thứ 10, ngày 20/05/2022.
+        </div>
+      </div>
+
+      <!-- Chatbox -->
+      <button class="btnChat" @click="chatClick">
+        <i class="fa-brands fa-facebook-messenger"></i>
+      </button>
+      <div class="chatBox" v-if="chatBoxVisible">
+        <div class="chatBoxHeader">
+          Hỗ Trợ Khách Hàng
+        </div>
+        <div class="chatContent">
+          <p>Hello! How can I assist you today?</p>
+        </div>
+        <textarea class="chatInput" placeholder="Type your message..."></textarea>
       </div>
     </div>
+  </div>
 
-    <script src="../SRC/app.js"></script>
-  </body>
+  <script src="../SRC/app.js"></script>
+</body>
+
 </html>
